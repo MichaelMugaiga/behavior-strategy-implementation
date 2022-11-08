@@ -20,7 +20,7 @@ let result  = [];
   }
   if (typeof start === 'string') {
     throw Error("start should be a number");
-  } 
+  }
   for (let step = start; step >= 0; step--) {
     result.push(step);
   }
