@@ -2,6 +2,8 @@
 
 'use strict';
 
+/* eslint-disable */ 
+
 /**
  * reverses a string
  * @param {string} [toReverse=''] - the string to reverse
@@ -9,8 +11,16 @@
  */
 
 // -------- your solutions --------
+const reverseString = (toReverse = "") => {
+  if (typeof toReverse !== "string") {
+    throw Error();
+  }
+    return toReverse.split("").reverse().join("");
+}
 
-for (const solution of [secretSolution]) {
+
+
+for (const solution of [secretSolution, reverseString]) {
   // the main test suite for the function
   describe(solution.name + ': reverses a string', () => {
     it('default parameter is an empty string -> ""', () => {
@@ -23,6 +33,15 @@ for (const solution of [secretSolution]) {
       expect(solution('ASDF')).toEqual('FDSA');
     });
     // write at least 5 more tests ...
+    it('a string with small letters', () => {
+      expect(solution('person')).toEqual('nosrep');
+    });
+    it('a string with only numbers', () => {
+      expect(solution('12345')).toEqual('54321');
+    });
+    it("should throw an error if not a string", () => {
+      expect(() => solution([])).toThrow(Error);
+    });
   });
 }
 
